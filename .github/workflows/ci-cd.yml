@@ -121,23 +121,23 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
     
       # Escaneo de vulnerabilidades en dependencias
-    - name: 🔍 Install security tools
+    - name:  Install security tools
       run: |
         pip install safety bandit
     
-    - name: 🔍 Run safety check
+    - name:  Run safety check
       run: |
         safety check -r requirements.txt --json --output safety-report.json || true
-        echo "✅ Safety check completed"
+        echo " Safety check completed"
     
     # Análisis de código estático
-    - name: 🔍 Run bandit security linter
+    - name: Run bandit security linter
       run: |
         bandit -r app/ -f json -o bandit-report.json || true
-        echo "✅ Bandit scan completed"
+        echo " Bandit scan completed"
     
     # Subir reportes (ACTUALIZADO)
-    - name: 📤 Upload security reports
+    - name: Upload security reports
       uses: actions/upload-artifact@v4
       if: always()
       with:
