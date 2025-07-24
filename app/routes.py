@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 from app.models import blog_storage, BlogPost
-from datetime import datetime 
+from datetime import datetime
 # Crear un Blueprint para organizar las rutas
 # ¿Qué es un Blueprint? Es una forma de organizar rutas en Flask
 # Permite modularidad y reutilización de código
